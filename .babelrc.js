@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== `test`) {
 const presetAbsPath = require(`path`).join(__dirname, '.babel-preset.js')
 
 module.exports = {
-  sourceMaps: true,
+  sourceMap: true,
   presets: [presetAbsPath],
   ignore,
 }

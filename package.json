@@ -1,16 +1,16 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "yoprobono-website",
+  "description": "Committed to finding an opportunity for you to do what you do best in furtherance of protecting and expanding immigrants' rights.",
+  "version": "0.0.01",
+  "author": "Michael Edelman <michael@edel.mn>",
   "dependencies": {
     "firebase": "^5.3.0",
     "gatsby": "next",
-    "gatsby-image": "^1.0.55",
-    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-image": "next",
+    "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-react-helmet": "next",
-    "gatsby-plugin-typography": "^1.7.19",
-    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-plugin-typography": "next",
+    "gatsby-source-filesystem": "next",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
@@ -23,13 +23,84 @@
     "gatsby"
   ],
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precise-commits"
+    }
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>scripts/setup-jest.js",
+    "testURL": "http://localhost",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|svg|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js",
+      "^(?!.*\\.module\\.css$).*\\.css$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.module\\.css$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/.cache/"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.{js,jsx}"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "cacheDirectory": ".jest/cache",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/jest-transformer.js"
+    }
+  },
   "scripts": {
+    "preinstall": "make init",
     "build": "gatsby build",
+    "build:prod": "yarn build -- --prefix-links",
+    "deploy": "yarn build:prod && firebase deploy",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:snapshotclean": "jest -u",
+    "test:coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "precise-commits": "precise-commits"
+  },
+  "peerDependencies": {
+    "babel-core": "6.x || ^7.0.0-0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/node": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.55",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.55",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-flow": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
+    "@babel/runtime": "7.0.0-beta.55",
+    "@firebase/app-types": "^0.3.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
+    "babel-plugin-transform-dynamic-import": "^2.0.0",
+    "coveralls": "^3.0.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.2.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.4.2",
+    "precise-commits": "^1.0.2",
     "prettier": "^1.13.7"
   },
   "repository": {

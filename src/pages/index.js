@@ -11,7 +11,7 @@ export default () => (
       <h1 style={{ borderBottom: 0, textAlign: 'center' }}>
         Join the Fight for Immigrants' Rights!
       </h1>
-      <img src={pic} alt="yoprobono-logo"/>
+      <img src={pic} alt="yoprobono-logo" />
 
       <h3>
         There is a real need in the immigrant community for high-quality,

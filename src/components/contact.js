@@ -5,8 +5,7 @@ import firebase from '../utils/firebase'
 const responseLinkedin = response => {
   const itemsRef = firebase.database().ref('items');
   itemsRef.push(response)
-  this.setState((prevState) => ({...prevState, submitted: true}))
-
+  this.setState((prevState) => ({...prevState, ...response, submitted: true}))
 }
 
 class ContactForm extends Component {
@@ -27,11 +26,8 @@ class ContactForm extends Component {
   }
 
   render() {
-    if (process.browser) { 
-
-    }
     return (
-      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'flex', justifyContent: 'center'}} className="contact-form">
         {/* <input type="text" name="email" value={this.state.email} onChange={(event) => this.handleChange({index: "email", value: event.target.value})}/> */}
         {this.Component ? this.state.submitted !== true && (<this.Component.default
           clientId="77kpzih8n7ayy7"

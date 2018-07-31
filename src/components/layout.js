@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-
-
-import Header from './header'
 import './layout.css'
 
 const Layout = ({ children, data }) => (
@@ -24,8 +21,8 @@ const Layout = ({ children, data }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: "Join the fight for immigrants rights. Not a lawyer? Don't worry about it!" },
+            { name: 'keywords', content: 'immigration, pro bono, legal services, legal tech, immigrants rights, attorney' },
           ]}
         />
         {/*<Header siteTitle={data.site.siteMetadata.title} />*/}

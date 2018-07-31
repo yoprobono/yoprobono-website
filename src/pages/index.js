@@ -11,7 +11,7 @@ export default () => (
       <h1 style={{ borderBottom: 0, textAlign: 'center' }}>
         Join the Fight for Immigrants' Rights!
       </h1>
-      <img src={pic} alt="yoprobono-logo"/>
+      <img src={pic} alt="yoprobono-logo" />
 
       <h3>
         There is a real need in the immigrant community for high-quality,
@@ -77,7 +77,7 @@ export default () => (
     <p>
       Are you a 501(c)(3) or similar organization operating in the immigration
       sphere and have a need for volunteers? Give us a
-      <a href="mailto:michael@edel.mn">shout</a>. If we already know you,
+      <a href="mailto:michael@edel.mn"> shout</a>. If we already know you,
       awesome, we can hook you right up. If we don't, we'll need you to provide
       some documentation and information about how you plan to use your
       volunteers. No hard feelings; we just need to make it work for everyone.

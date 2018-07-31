@@ -9,3 +9,4 @@ yarn-error.log
 
 .idea
 /functions/node_modules
+.jest
